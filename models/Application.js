@@ -28,11 +28,10 @@ class Application {
     }
 
     static async edit(category, value, appId) {
-        const sql = `UPDATE applications
-        SET $1 = $2
-        WHERE app_id = $3 returning *;`
-        const databaseResult = await pool.query(sql, [category, value, appId])
-        return databaseResult.rows[0];
+        const sql = `UPDATE applications SET ${category} = $1
+        WHERE app_id = $2 returning *;`
+        const databaseResult = await pool.query(sql, [value, appId])
+        return databaseResult.rows[0]
     }
 }
 

@@ -12,6 +12,6 @@ router.get('/:id', applicationController.getApplication)
 
 router.delete('/:id', applicationController.deleteApplication)
 
-router.patch('/edit/:id/:column', applicationController.editApplication);
+router.patch('/edit/:applicationId/:column', applicationController.editApplication);
 
 module.exports = router;
