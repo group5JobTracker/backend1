@@ -34,16 +34,18 @@ module.exports = {
 
     production: {
         client: 'pg',
-        connection: {
-            database: 'postgres://hfqbpqtdnzyrwx:31efe21f4a74591db7ce3f11dd860a6e26c3ef8a3a6d18058334eefca058a4b0@ec2-54-159-175-38.compute-1.amazonaws.com:5432/d5dir12t9jrq8p',
-            connectionString: process.env.DB_URL,
-            ssl: { rejectUnauthorized: false },
+        // connection: {
+        //     database: 'postgres://hfqbpqtdnzyrwx:31efe21f4a74591db7ce3f11dd860a6e26c3ef8a3a6d18058334eefca058a4b0@ec2-54-159-175-38.compute-1.amazonaws.com:5432/d5dir12t9jrq8p',
+        //     connectionString: process.env.DB_URL,
+        //     ssl: { rejectUnauthorized: false },
 
-        },
-        pool: {
-            min: 2,
-            max: 10
-        },
+        // },
+        connection: 'postgres://hfqbpqtdnzyrwx:31efe21f4a74591db7ce3f11dd860a6e26c3ef8a3a6d18058334eefca058a4b0@ec2-54-159-175-38.compute-1.amazonaws.com:5432/d5dir12t9jrq8p',
+        // pool: {
+        //     min: 2,
+        //     max: 10
+        // },
+        ssl: false,
         migrations: {
             tableName: 'knex_migrations'
         }
