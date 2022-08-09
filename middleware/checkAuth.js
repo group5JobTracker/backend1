@@ -4,6 +4,7 @@ const authCheck = (req, res, next) => {
     const headers = req.headers;
 
     const authHeader = headers.authorization;
+    console.log(authHeader);
 
     if (!authHeader) {
         return res.status(401).json({

@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken');
 const puppeteer = require('puppeteer');
-const env = require('dotenv')
+const env = require('dotenv').config()
 
-const secretSigningKey = process.env.SECRET_KEY || env.secret;
+const secretSigningKey = process.env.SECRET_KEY || 'shhhhhhhhhhhhhhhhh';
 
 const generateToken = (userId) => {
     return jwt.sign({ userId }, secretSigningKey)
