@@ -14,3 +14,45 @@ The body of the request should look like the following
   industry : "Software Engineering"
 }
 ```
+When we send this request to our API, we get a response of 
+```javascript
+{
+  newUser : {
+    firstName : "Test",
+    lastName : "User",
+    email : "testUser@fake.com",
+    password : "myP@$$w0rd123",
+    industry : "Software Engineering"
+  },
+  token : "UNIQUE JWT"
+}
+```
+## url/auth/login
+This route will be used when our user is attempting to login to our app. 
+The body of the request should look like the following
+```javascript
+{
+  email : "testUser@fake.com", // the email of the account the user is trying to sign into
+  password : "myP@$$w0rd123", // the password that should be associated with that account
+}
+```
+
+When we send this request to our API, we get a response of 
+```javascript
+{
+  userInfo : {
+    firstName : "Test",
+    lastName : "User",
+    email : "testUser@fake.com",
+    password : "myP@$$w0rd123",
+    industry : "Software Engineering"
+  },
+  token : "UNIQUE JWT"
+}
+```
+
+# Moving onto url/applications
+
+
+
+
