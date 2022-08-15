@@ -97,7 +97,7 @@ This route will be used to retieve all the information associated with a __speci
 
 This route will be used when a user wants to delete a card from the dashboard. As an example `url/applications/1` will delete the the application with an app_id of 1 from our database. This route does __not__ require a body to be passed.
 
-## url/applications/edit/:applicationId/:column
+## url/applications/edit/:applicationId/:column (PATCH)
 
 This route will be used when a user wants to edit a speciifc field for a card. As an example `url/applications/1/company` will edit the _company_ field for the application with _id_ of 1 to be "New York Times". The body of the request should have the following structure
 
@@ -115,7 +115,3 @@ Valid columns can be
 - notes
 - reminders_on
 - card_color_hex
-
-
-
-
