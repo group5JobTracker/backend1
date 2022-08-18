@@ -8,10 +8,9 @@ async function signUpUser(req, res) {
     const lastName = req.body.lastName
     const email = req.body.email
     const password = req.body.password
-    const industry = req.body.industry
 
     try {
-        const result = await User.create(firstName, lastName, email, password, industry)
+        const result = await User.create(firstName, lastName, email, password)
         const userToken = generateToken(result.user_id)
         res.status(201).json({
             newUser: result,
