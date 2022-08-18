@@ -10,8 +10,7 @@ The body of the request should look like the following
   firstName : "Test",
   lastName : "User",
   email : "testUser@fake.com",
-  password : "myP@$$w0rd123",
-  industry : "Software Engineering"
+  password : "myP@$$w0rd123"
 }
 ```
 When we send this request to our API, we get a response of 
@@ -21,8 +20,7 @@ When we send this request to our API, we get a response of
     firstName : "Test",
     lastName : "User",
     email : "testUser@fake.com",
-    password : "myP@$$w0rd123",
-    industry : "Software Engineering"
+    password : "myP@$$w0rd123(but hashed)"
   },
   token : "UNIQUE JWT"
 }
@@ -33,7 +31,7 @@ The body of the request should look like the following
 ```javascript
 {
   email : "testUser@fake.com", // the email of the account the user is trying to sign into
-  password : "myP@$$w0rd123", // the password that should be associated with that account
+  password : "myP@$$w0rd123" // the password that should be associated with that account
 }
 ```
 
@@ -61,16 +59,18 @@ The body of the request should look like the following
   title : "UX Designer", // the title of the position
   company : "Figma",
   location : "San Diego, CA",
-  date : "Mon Aug 15 17:28:59 2022 UTC", //unix timestamp
+  date : "2022-08-18T04:00:00.000Z", //unix timestamp
   notes : "recruiter really likes pancakes", // can be empty
   contact : "recruiter@figma.com", // email of the recruiter for the job posting
   notif : false, // boolean indicating whether or not the user wants notifications for this application
-  color : "#ff0000" // Hex Triplet Color Code for the accent of the card
+  color : "#ff0000", // Hex Triplet Color Code for the accent of the card
+  desc : "Looking for an entry level UX designer to..."
 }
 ```
 When we send this request to our API, we get the same response as the body of the request but with an `app_id` which confirms that our card was successfully created.
 
 ## url/applications/auto (POST) (currently down due to Heroku issues) 
+(need to update parameters for this controller)
 This route will be used when users want to create cards by pasting a valid LinkedIn link. 
 The body of the request should have the following structure
 ```javascript
