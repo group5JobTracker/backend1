@@ -1,6 +1,12 @@
 const router = require('express').Router();
-const board = require('../controllers/boardsController');
+const boardController = require('../controllers/boardsController');
 
-router.post('/create', board.createBoard);
+router.get('/user/:userId', boardController.userBoards);
+
+router.post('/create', boardController.createBoard);
+
+router.patch('/edit/:boardId/:column', boardController.editBoard)
+
+router.delete('/:id', boardController.deleteBoard)
 
 module.exports = router;
