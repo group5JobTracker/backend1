@@ -9,7 +9,6 @@ exports.up = function(knex) {
         table.string('last_name', 20).notNullable();
         table.string('email').unique().notNullable();
         table.string('password').notNullable();
-        table.string('industry').notNullable()
     })
 };
 
