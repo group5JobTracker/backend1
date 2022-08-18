@@ -4,6 +4,7 @@ const cors = require('cors');
 const { pool } = require('./db')
 const authenticationRoutes = require('./routes/auth');
 const applicationRoutes = require('./routes/applications');
+const boardRoutes = require('./routes/board');
 const app = express();
 
 app.use(express.json());
@@ -12,6 +13,7 @@ app.use(cors());
 
 app.use('/applications', applicationRoutes);
 app.use('/auth', authenticationRoutes);
+app.use('/boards', boardRoutes);
 
 let port = process.env.PORT || 3000;
 
