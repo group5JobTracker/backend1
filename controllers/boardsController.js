@@ -10,11 +10,34 @@ const userBoards = async(req, res) => {
     }
 }
 
-async function createBoard(req, res) {
+const getCards = async(req, res) => {
+    const boardId = req.params.boardId;
+
+    try {
+        const response = await Board.cards(boardId);
+        res.status(201).json({ cards: response })
+    } catch (error) {
+        res.status(500).json({ message: `${error.message}` })
+    }
+}
+
+const createBoard = async(req, res) => {
     const { name, owner, color } = req.body;
 
     try {
         const response = await Board.create(name, owner, color)
+        res.status(201).json({ board: response })
+    } catch (error) {
+        res.status(500).json({ message: `${error.message}` })
+    }
+}
+
+const addToBoard = async(req, res) => {
+    const boardId = req.params.boardId;
+    const { appId } = req.body;
+
+    try {
+        const response = await Board.add(appId, boardId);
         res.status(201).json({ board: response })
     } catch (error) {
         res.status(500).json({ message: `${error.message}` })
@@ -44,9 +67,23 @@ const deleteBoard = async(req, res) => {
     }
 }
 
+const removeCard = async(req, res) => {
+    const { boardId, appId } = req.params
+    try {
+        const response = await Board.removeCard(boardId, appId);
+        console.log(response)
+        res.status(203).json({ message: `Card with id ${response[0].app} has been successfully removed from board with ID of ${response[0].board}` })
+    } catch (error) {
+        res.status(500).json({ message: `${error.message}` })
+    }
+}
+
 module.exports = {
     createBoard,
     editBoard,
     deleteBoard,
-    userBoards
+    userBoards,
+    addToBoard,
+    getCards,
+    removeCard
 }
