@@ -1,6 +1,6 @@
 # Dragonfly Backend API
 
-This is the internal API that we will be using to do CRUD operations on our app. There are currently two main routes that we will be using to support the main dashboard view. One is url/auth, which will be used to allow customers to be able to login and sign up. The other is url/applications, which will house all the routes to do CRUD operations for our app.
+This is the internal API that we will be using to do CRUD operations on our app. There are currently three main routes that we will be using to support the main dashboard view, and the board view. One is url/auth, which will be used to allow users to be able to login and sign up. Another is url/applications, which will house all the routes to do CRUD operations for cards. The last one is url/boards, which will be primarily used on the board view.
 
 ## url/auth/signup (POST)
 This route will be used to create a user for our application
@@ -115,3 +115,7 @@ Valid columns can be
 - notes
 - reminders_on
 - card_color_hex
+
+## url/boards/user/:userId
+This route will be used when we are starting to load the board view. We will first need to fetch from our backend, the boards that the authenticated user has. This route does not take in a body for the request. 
+
