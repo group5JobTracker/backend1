@@ -3,10 +3,10 @@ const { scrapePosting } = require('../utils');
 const Application = require('../models/Application');
 
 async function manualEntry(req, res) {
-    const { userId, status, title, company, location, date, notes, contact, notif, color } = req.body
+    const { userId, status, title, company, location, date, notes, contact, notif, color, desc } = req.body
 
     try {
-        const response = await Application.create(userId, status, title, company, location, contact, date, notes, notif, color)
+        const response = await Application.create(userId, status, title, company, location, contact, date, notes, notif, color, desc)
         res.status(201).json({ post: response })
     } catch (error) {
         res.status(500).json({ message: `${error.message}` })
