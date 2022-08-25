@@ -17,6 +17,7 @@ exports.up = function(knex) {
         table.boolean('reminders_on');
         table.string('card_color_hex').notNullable();
         table.string('job_description', 20000).nullable();
+        table.string("tagName").nullable();
     })
 };
 
