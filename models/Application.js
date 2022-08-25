@@ -2,10 +2,10 @@ const { response } = require('express');
 const { pool } = require('../db');
 
 class Application {
-    static async create(user, status, title, company, location, contact, date, notes, notif, color, desc) {
-        const sql = `INSERT INTO applications ("user", "status", "position", "company", "location", "recruiter_email", "created_at", "notes", "reminders_on", "card_color_hex", "job_description") 
+    static async create(user, status, title, company, location, contact, date, notes, notif, color, desc, tagName) {
+        const sql = `INSERT INTO applications ("user", "status", "position", "company", "location", "recruiter_email", "created_at", "notes", "reminders_on", "card_color_hex", "job_description", tagName) 
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) returning *;`
-        const databaseResult = await pool.query(sql, [user, status, title, company, location, contact, date, notes, notif, color, desc]);
+        const databaseResult = await pool.query(sql, [user, status, title, company, location, contact, date, notes, notif, color, desc, tagName]);
         return databaseResult.rows[0];
     }
 
