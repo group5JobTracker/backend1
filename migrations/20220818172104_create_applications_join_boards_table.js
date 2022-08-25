@@ -7,7 +7,7 @@ exports.up = function(knex) {
         table.integer('app').notNullable();
         table.foreign('app').references('app_id').inTable('applications')
         table.integer('board').notNullable();
-        table.foreign('board').references('board_id').inTable('boards')
+        table.foreign('board').references('board_id').inTable('boards').onDelete('CASCADE')
     })
 };
 
