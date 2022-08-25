@@ -12,7 +12,7 @@ exports.up = function(knex) {
         table.string('company').notNullable()
         table.string('location').notNullable();
         table.string('recruiter_email').nullable();
-        table.timestamp('created_at').defaultTo(knex.fn.now());
+        table.string('created_at').notNullable();
         table.string('notes', 20000).nullable();
         table.boolean('reminders_on');
         table.string('card_color_hex').notNullable();
