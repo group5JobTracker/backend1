@@ -8,7 +8,6 @@ exports.up = function(knex) {
         table.string('name').notNullable();
         table.integer('owner').notNullable();
         table.foreign('owner').references('user_id').inTable('users')
-        table.string('card_color_hex').notNullable();
     })
 };
 
