@@ -10,7 +10,7 @@ class Board {
     static async create(name, owner, color) {
         const sql = `INSERT INTO boards ("name", "owner")
         VALUES ($1, $2) returning *;`
-        const databaseResult = await pool.query(sql, [name, owner, color]);
+        const databaseResult = await pool.query(sql, [name, owner]);
         return databaseResult.rows[0];
     }
 
