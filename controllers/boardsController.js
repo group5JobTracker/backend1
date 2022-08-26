@@ -22,10 +22,10 @@ const getCards = async(req, res) => {
 }
 
 const createBoard = async(req, res) => {
-    const { name, owner, color } = req.body;
+    const { name, owner} = req.body;
 
     try {
-        const response = await Board.create(name, owner, color)
+        const response = await Board.create(name, owner)
         res.status(201).json({ board: response })
     } catch (error) {
         res.status(500).json({ message: `${error.message}` })
