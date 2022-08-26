@@ -7,7 +7,7 @@ class Board {
         return databaseResult.rows
     }
 
-    static async create(name, owner, color) {
+    static async create(name, owner) {
         const sql = `INSERT INTO boards ("name", "owner")
         VALUES ($1, $2) returning *;`
         const databaseResult = await pool.query(sql, [name, owner]);
