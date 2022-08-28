@@ -15,7 +15,7 @@ class Board {
     }
 
     static async cards(boardId) {
-        const sql = `SELECT applications.app_id, applications.status, applications."position" ,applications.company, applications."location", applications.recruiter_email, applications.created_at, applications.notes, applications.reminders_on, applications.card_color_hex, applications.job_description, applications.tagName
+        const sql = `SELECT applications.app_id, applications.status, applications."position" ,applications.company, applications."location", applications.recruiter_email, applications.created_at, applications.notes, applications.reminders_on, applications.card_color_hex, applications.job_description, applications."tagName"
         FROM applications
         JOIN applications_join_boards
         on applications_join_boards.app = applications.app_id
