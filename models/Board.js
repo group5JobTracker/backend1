@@ -15,13 +15,13 @@ class Board {
     }
 
     static async cards(boardId) {
-        const sql = `SELECT applications.app_id, applications.status, applications."position" ,applications.company, applications."location", applications.recruiter_email, applications.created_at, applications.notes, applications.reminders_on, applications.card_color_hex, applications.job_description
+        const sql = `SELECT applications.app_id, applications.status, applications."position" ,applications.company, applications."location", applications.recruiter_email, applications.created_at, applications.notes, applications.reminders_on, applications.card_color_hex, applications.job_description, applications.tagName
         FROM applications
         JOIN applications_join_boards
         on applications_join_boards.app = applications.app_id
         WHERE applications_join_boards.board = $1
         GROUP BY 
-        1,2,3,4,5,6,7,8,9,10,11;
+        1,2,3,4,5,6,7,8,9,10,11,12;
         `
         const databaseResult = await pool.query(sql, [boardId])
         return databaseResult.rows
