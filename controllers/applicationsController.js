@@ -15,12 +15,14 @@ async function manualEntry(req, res) {
 
 async function autoEntry(req, res) {
 
-    const { userId, url, status, date, contact, notif, color, notes, tagName } = req.body
-    const { desc, title, company, location } = await scrapePosting(url);
+    const {url} = req.body
+    // const { userId, url, status, date, contact, notif, color, notes, tagName } = req.body
+    // const { desc, title, company, location } = await scrapePosting(url);
+    const scrapedData = await scrapePosting(url);
 
     try {
-        const response = await Application.create(userId, status, title, company, location, contact, date, notes, notif, color, desc, tagName)
-        res.status(201).json({ post: response })
+        // const response = await Application.create(userId, status, title, company, location, contact, date, notes, notif, color, desc, tagName)
+        res.status(201).json({ scrapedData })
     } catch (error) {
         res.status(500).json({ message: `${error.message}` })
     }
